@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteData from "../../content/site.json";
+const service = siteData.services.personalStyling;
+---
+<BaseLayout title="Personal styling" description="Arrange personal styling directly with Sage of Good Intentions.">
+  <section class="page-hero">
+    <span class="eyebrow">Direct and personal</span>
+    <h1>Personal styling</h1>
+    <p>{service.summary}</p>
+    <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Start a conversation</a>
+  </section>
+  <section class="page-section service-grid">
+    {service.examples.map((example, index) => (
+      <article class="service-card"><span>0{index + 1}</span><h2>{example}</h2><p>The exact scope, price, timing, and format are arranged directly with Sage based on the customer's needs.</p></article>
+    ))}
+  </section>
+</BaseLayout>
