@@ -17,7 +17,7 @@ const {
 } = Astro.props;
 
 const fullTitle = title === siteData.business.name ? title : `${title} | ${siteData.business.name}`;
-const canonical = new URL(path, Astro.site);
+const canonical = new URL(path, Astro.site ?? Astro.url);
 const nav = [
   ["Shop", "/shop"],
   ["Style bundles", "/style-bundles"],
