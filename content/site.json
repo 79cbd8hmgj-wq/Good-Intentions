@@ -1,0 +1,140 @@
+{
+  "business": {
+    "name": "Good Intentions",
+    "owner": "Sage",
+    "tagline": "Curated secondhand. Good intentions.",
+    "description": "One-of-one vintage and secondhand clothing, themed collections, style bundles, personal styling, and community-rooted good vibes.",
+    "region": "Capital Region, New York",
+    "instagram": "https://www.instagram.com/good.intentions.collections/",
+    "founderInstagram": "https://www.instagram.com/sage.nicole111/",
+    "depop": "https://www.depop.com/goodintentionscollections/",
+    "publicEmail": "hello@example.com"
+  },
+  "brand": {
+    "confirmedWords": ["2000s", "hipster", "good vibes", "free-spirited"],
+    "interpretedWords": ["Y2K", "dreamy", "psychedelic", "music-inspired", "bohemian", "whimsical", "community-oriented"],
+    "visualDirection": "A dark plum editorial foundation with warm cream type, saturated pink-orange-purple gradients, glowing circular motifs, and enough restraint for each collection to introduce its own mood."
+  },
+  "commerce": {
+    "goal": "direct website checkout",
+    "checkoutMode": "stripe-payment-links",
+    "checkoutEnabled": false,
+    "currency": "USD",
+    "shipping": "United States shipping only",
+    "localPickup": "Not offered for normal website orders. Prearranged handoff may happen at in-person events.",
+    "inventoryModel": "Most clothing is assumed to be one-of-one until Sage confirms otherwise.",
+    "developmentNotice": "The catalog and prices below are foundation examples based on supplied Instagram references. Checkout remains disabled until real inventory, measurements, policies, and payment links are approved."
+  },
+  "collections": [
+    {
+      "slug": "shakira",
+      "name": "Shakira Collection",
+      "description": "Y2K performance energy, metallic details, statement belts, skirts, and bold going-out pieces.",
+      "palette": "sunset"
+    },
+    {
+      "slug": "midsummer-nights-dream",
+      "name": "A Midsummer Night's Dream",
+      "description": "Earthy fairy energy, ethereal layers, floral texture, lace, and dreamy color.",
+      "palette": "forest"
+    },
+    {
+      "slug": "zara-larsson",
+      "name": "Zara Larsson Collection",
+      "description": "Bright pop-star styling, saturated Y2K color, playful silhouettes, and statement pieces.",
+      "palette": "candy"
+    },
+    {
+      "slug": "whimsigoth",
+      "name": "Whimsigoth Collection",
+      "description": "Celestial color, flowing layers, witchy texture, and romantic alternative styling.",
+      "palette": "midnight"
+    }
+  ],
+  "products": [
+    {
+      "slug": "coin-fringe-skirt",
+      "name": "Coin Fringe Skirt",
+      "price": 38,
+      "category": "Bottoms",
+      "size": "TBD",
+      "measurements": "Required before launch",
+      "brand": "Vintage / label pending",
+      "condition": "Full condition notes pending",
+      "material": "Material tag pending",
+      "color": "Black and silver",
+      "collection": "shakira",
+      "status": "draft",
+      "quantity": 1,
+      "checkoutUrl": null
+    },
+    {
+      "slug": "ivory-lace-slip",
+      "name": "Ivory Lace Slip Top",
+      "price": 32,
+      "category": "Tops",
+      "size": "TBD",
+      "measurements": "Required before launch",
+      "brand": "Vintage / label pending",
+      "condition": "Full condition notes pending",
+      "material": "Lace blend / tag pending",
+      "color": "Ivory",
+      "collection": "midsummer-nights-dream",
+      "status": "draft",
+      "quantity": 1,
+      "checkoutUrl": null
+    },
+    {
+      "slug": "turquoise-ruched-halter",
+      "name": "Turquoise Ruched Halter",
+      "price": 34,
+      "category": "Tops",
+      "size": "TBD",
+      "measurements": "Required before launch",
+      "brand": "Label pending",
+      "condition": "Full condition notes pending",
+      "material": "Material tag pending",
+      "color": "Turquoise",
+      "collection": "zara-larsson",
+      "status": "draft",
+      "quantity": 1,
+      "checkoutUrl": null
+    }
+  ],
+  "services": {
+    "styleBundles": {
+      "summary": "Personalized secondhand pieces selected through direct communication with Sage.",
+      "startingPrice": 30,
+      "confirmedInputs": ["sizes", "measurements", "budget", "style inspiration", "preferred colors", "disliked colors or items"],
+      "process": [
+        "Message Sage and describe the look, sizes, measurements, budget, inspiration, likes, dislikes, and goals.",
+        "Sage confirms the bundle scope, current price, timing, and availability directly.",
+        "Sage curates the pieces and communicates any needed decisions.",
+        "The completed bundle ships within the United States or may be handed over at a prearranged in-person event."
+      ]
+    },
+    "personalStyling": {
+      "summary": "Personal styling is arranged through direct communication rather than a fixed package.",
+      "examples": ["outfit direction", "aesthetic development", "wardrobe guidance", "special-event styling"]
+    },
+    "donations": {
+      "summary": "Potential donors send photos first. Sage accepts or declines the items before shipping or meetup.",
+      "handoff": ["shipping after approval", "prearranged meetup", "in-person event handoff"],
+      "compensation": "Donors do not normally receive payment, credit, or another benefit."
+    }
+  },
+  "events": {
+    "enabled": true,
+    "summary": "Good Intentions frequently attends vintage markets, pop-ups, and community events in New York and nearby areas.",
+    "confirmedCalendar": []
+  },
+  "policies": {
+    "status": "draft",
+    "shipping": "Orders placed through the website will ship within the United States.",
+    "returns": "A final return and exchange policy must be approved before checkout is enabled.",
+    "oneOfOne": "An item is not reserved until payment is completed. Most pieces are expected to have a quantity of one.",
+    "condition": "Secondhand items may show normal signs of wear. Known flaws should be photographed and described in the listing.",
+    "customServices": "Style bundles and personal styling are arranged directly. Scope, price, turnaround, and cancellation terms must be confirmed before payment.",
+    "donations": "Sending photographs does not guarantee acceptance. Do not ship or bring items until Sage confirms acceptance and a handoff method."
+  }
+}
