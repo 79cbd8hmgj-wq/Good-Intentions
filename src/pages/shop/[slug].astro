@@ -11,6 +11,7 @@ export function getStaticPaths() {
 
 const { product } = Astro.props;
 const canCheckout = siteData.commerce.checkoutEnabled && product.status === "available" && Boolean(product.checkoutUrl);
+const checkoutHref = product.checkoutUrl ?? "#";
 ---
 <BaseLayout title={product.name} description={`${product.name} from Good Intentions. ${product.condition}`}>
   <section class="page-section detail-shell">
@@ -30,7 +31,7 @@ const canCheckout = siteData.commerce.checkoutEnabled && product.status === "ava
         <div><dt>Quantity</dt><dd>{product.quantity}</dd></div>
       </dl>
       {canCheckout ? (
-        <a class="button button-primary" href={product.checkoutUrl}>Buy securely</a>
+        <a class="button button-primary" href={checkoutHref}>Buy securely</a>
       ) : (
         <button class="button button-disabled" type="button" disabled>Checkout coming soon</button>
       )}
