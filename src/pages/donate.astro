@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteData from "../../content/site.json";
+const donation = siteData.services.donations;
+---
+<BaseLayout title="Donate clothing" description="Submit secondhand clothing photos to Good Intentions for possible acceptance.">
+  <section class="page-hero">
+    <span class="eyebrow">Give good clothes another life</span>
+    <h1>Clothing donations</h1>
+    <p>{donation.summary}</p>
+    <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Send photos on Instagram</a>
+  </section>
+  <section class="page-section donation-grid">
+    <article class="donation-card"><span>01</span><h2>Send clear photos</h2><p>Include the full item, label, size tag, material tag, and any visible wear or flaws.</p></article>
+    <article class="donation-card"><span>02</span><h2>Wait for acceptance</h2><p>Sage decides whether each item fits the shop. Sending photos does not guarantee acceptance.</p></article>
+    <article class="donation-card"><span>03</span><h2>Arrange the handoff</h2><p>Accepted items can be shipped, handed over through a prearranged meetup, or brought to an event when confirmed.</p></article>
+  </section>
+  <section class="page-section"><div class="checkout-note"><strong>Compensation</strong><p>{donation.compensation}</p></div></section>
+</BaseLayout>
