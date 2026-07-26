@@ -2,16 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import siteData from "../../content/site.json";
 
-const labels = {
-  shipping: "Shipping",
-  returns: "Returns and exchanges",
-  oneOfOne: "One-of-one inventory",
-  condition: "Secondhand condition",
-  customServices: "Style bundles and styling",
-  donations: "Donations",
-};
-
-const policies = Object.entries(siteData.policies).filter(([key]) => key !== "status");
+const policies = [
+  ["Shipping", siteData.policies.shipping],
+  ["Returns and exchanges", siteData.policies.returns],
+  ["One-of-one inventory", siteData.policies.oneOfOne],
+  ["Secondhand condition", siteData.policies.condition],
+  ["Style bundles and styling", siteData.policies.customServices],
+  ["Donations", siteData.policies.donations],
+];
 ---
 <BaseLayout title="Policies" description="Draft Good Intentions store, shipping, styling, and donation policies." noindex>
   <section class="page-hero">
@@ -20,8 +18,8 @@ const policies = Object.entries(siteData.policies).filter(([key]) => key !== "st
     <p>These policies establish the structure needed for direct checkout. They remain private from search engines and must be finalized before sales are enabled.</p>
   </section>
   <section class="page-section policy-list">
-    {policies.map(([key, value]) => (
-      <article class="policy-card"><h2>{labels[key]}</h2><p>{value}</p></article>
+    {policies.map(([label, value]) => (
+      <article class="policy-card"><h2>{label}</h2><p>{value}</p></article>
     ))}
   </section>
 </BaseLayout>
