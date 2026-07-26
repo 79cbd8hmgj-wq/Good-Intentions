@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteData from "../../content/site.json";
+---
+<BaseLayout title="About" description="Meet Sage and learn about the point of view behind Good Intentions.">
+  <section class="page-hero">
+    <span class="eyebrow">Curated by Sage</span>
+    <h1>Secondhand clothing with a point of view.</h1>
+    <p>Good Intentions is a founder-led thrift and styling business built around expressive clothing, themed collections, community events, and the belief that personal style should feel good instead of fitting one narrow aesthetic.</p>
+  </section>
+  <section class="page-section feature-grid">
+    <div class="feature-copy">
+      <h2>One brand, many moods.</h2>
+      <p>The supplied collection references move between Y2K pop, hipster nostalgia, cottagecore, festival color, whimsigoth, bohemian pieces, and dreamy editorial styling. Sage's curation is the consistent thread.</p>
+      <p>{siteData.brand.visualDirection}</p>
+      <div class="button-row">
+        {siteData.brand.confirmedWords.map((word) => <span class="button button-secondary">{word}</span>)}
+      </div>
+    </div>
+    <div class="feature-art"><span>Good clothes.<br />Good vibes.<br />Good intentions.</span></div>
+  </section>
+</BaseLayout>
