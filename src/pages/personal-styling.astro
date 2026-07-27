@@ -2,17 +2,23 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import siteData from "../../content/site.json";
 const service = siteData.services.personalStyling;
+const details = [
+  "Need one outfit to come together? Sage can help find the missing piece and make the whole look feel intentional.",
+  "Trying to dress more like the version of yourself in your saved photos? Talk through the mood, references, and what still feels off.",
+  "Work with what you already own, figure out what is actually missing, and stop buying pieces that never leave the hanger.",
+  "Birthdays, concerts, photos, dates, and other plans that deserve something more specific than a last-minute outfit.",
+];
 ---
-<BaseLayout title="Personal styling" description="Arrange personal styling directly with Sage of Good Intentions.">
+<BaseLayout title="Personal styling" description="Talk directly with Sage about an outfit, an event, or a new direction for your personal style.">
   <section class="page-hero">
-    <span class="eyebrow">Direct and personal</span>
+    <span class="eyebrow">No copy-and-paste styling plan</span>
     <h1>Personal styling</h1>
     <p>{service.summary}</p>
-    <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Start a conversation</a>
+    <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Talk to Sage</a>
   </section>
   <section class="page-section service-grid">
     {service.examples.map((example, index) => (
-      <article class="service-card"><span>0{index + 1}</span><h2>{example}</h2><p>The exact scope, price, timing, and format are arranged directly with Sage based on the customer's needs.</p></article>
+      <article class="service-card"><span>0{index + 1}</span><h2>{example}</h2><p>{details[index]}</p></article>
     ))}
   </section>
 </BaseLayout>
