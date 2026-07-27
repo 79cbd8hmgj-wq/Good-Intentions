@@ -1,6 +1,7 @@
 ---
 import siteData from "../../content/site.json";
 import "../styles/global.css";
+import "../styles/checkout.css";
 
 interface Props {
   title?: string;
@@ -44,7 +45,7 @@ const nav = [
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="development-banner">Website preview — the online shop is not open yet.</div>
+    {!siteData.commerce.checkoutEnabled && <div class="development-banner">Website preview — the online shop is not open yet.</div>}
     <header class="site-header">
       <div class="nav-shell">
         <a class="brand" href="/" aria-label="Good Intentions home">
