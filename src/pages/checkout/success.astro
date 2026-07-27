@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Payment status" description="Check the status of a Good Intentions payment." noindex={true}>
+  <section class="page-hero page-hero-narrow checkout-result-page">
+    <span class="eyebrow">Secure checkout</span>
+    <h1>Checking your payment</h1>
+    <p id="checkout-summary">Stripe sent you back to Good Intentions. We are confirming the session before showing an order status.</p>
+  </section>
+
+  <section class="page-section checkout-result-section">
+    <div class="checkout-result-card" id="checkout-result" aria-live="polite" aria-busy="true">
+      <span class="checkout-result-icon" id="checkout-result-icon" aria-hidden="true">•••</span>
+      <div>
+        <h2 id="checkout-result-title">One moment</h2>
+        <p id="checkout-result-message">Do not refresh or submit another payment while this check is running.</p>
+      </div>
+    </div>
+    <div class="button-row checkout-result-actions">
+      <a class="button button-secondary" href="/shop">Return to the shop</a>
+      <a class="button button-secondary" href="https://www.instagram.com/good.intentions.collections/" target="_blank" rel="noreferrer">Message Sage</a>
+    </div>
+  </section>
+
+  <script is:inline>
+    const result = document.querySelector('#checkout-result');
+    const resultIcon = document.querySelector('#checkout-result-icon');
+    const resultTitle = document.querySelector('#checkout-result-title');
+    const resultMessage = document.querySelector('#checkout-result-message');
+    const summary = document.querySelector('#checkout-summary');
+    const sessionId = new URLSearchParams(window.location.search).get('session_id');
+
+    const showResult = (title, message, symbol, state) => {
+      if (!result || !resultIcon || !resultTitle || !resultMessage) return;
+      result.setAttribute('aria-busy', 'false');
+      result.dataset.state = state;
+      resultIcon.textContent = symbol;
+      resultTitle.textContent = title;
+      resultMessage.textContent = message;
+    };
+
+    if (!sessionId) {
+      showResult('We could not find that checkout', 'Return to the shop and start again. No payment status was confirmed on this page.', '!', 'error');
+    } else {
+      fetch(`/api/checkout-status?session_id=${encodeURIComponent(sessionId)}`, {
+        headers: { Accept: 'application/json' },
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || 'Unable to verify checkout.');
+          return data;
+        })
+        .then((data) => {
+          const currency = String(data.currency || 'usd').toUpperCase();
+          const amount = typeof data.amountTotal === 'number'
+            ? new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(data.amountTotal / 100)
+            : null;
+
+          if (data.paymentStatus === 'paid') {
+            if (summary) summary.textContent = 'Your secure payment was verified through Stripe.';
+            showResult(
+              'Payment received',
+              `${amount ? `${amount} was paid. ` : ''}Sage still needs to confirm the one-of-one item and shipping details before the order is treated as fulfilled.`,
+              '✓',
+              'success',
+            );
+            return;
+          }
+
+          showResult(
+            'Payment is still processing',
+            'Some payment methods take longer to finish. Do not pay again. Sage can confirm the final status through Stripe.',
+            '…',
+            'pending',
+          );
+        })
+        .catch((error) => {
+          showResult('We could not verify the payment', error.message || 'Check Stripe or message Sage before trying again.', '!', 'error');
+        });
+    }
+  </script>
+</BaseLayout>
