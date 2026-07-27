@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Checkout unavailable" description="A Good Intentions checkout could not be started." noindex={true}>
+  <section class="page-hero page-hero-narrow checkout-result-page">
+    <span class="eyebrow">Checkout did not start</span>
+    <h1>Something needs attention first.</h1>
+    <p id="checkout-error-message">The payment page could not be opened. No payment was taken.</p>
+    <div class="button-row">
+      <a class="button button-primary" href="/shop">Return to the shop</a>
+      <a class="button button-secondary" href="https://www.instagram.com/good.intentions.collections/" target="_blank" rel="noreferrer">Message Sage</a>
+    </div>
+  </section>
+
+  <script is:inline>
+    const messages = {
+      'not-ready': 'The online checkout is not open yet. No payment was taken.',
+      'configuration': 'The secure payment setup is incomplete. No payment was taken.',
+      'missing-item': 'That item could not be found. No payment was taken.',
+      'unavailable': 'That one-of-one item is not available for checkout. No payment was taken.',
+      'invalid-request': 'The checkout request could not be verified. No payment was taken.',
+      'stripe': 'Stripe could not open the payment page. No payment was taken.',
+    };
+    const reason = new URLSearchParams(window.location.search).get('reason');
+    const message = document.querySelector('#checkout-error-message');
+    if (message && reason && messages[reason]) message.textContent = messages[reason];
+  </script>
+</BaseLayout>
