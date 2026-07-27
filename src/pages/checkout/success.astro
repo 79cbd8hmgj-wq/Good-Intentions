@@ -10,10 +10,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <section class="page-section checkout-result-section">
     <div class="checkout-result-card" id="checkout-result" aria-live="polite" aria-busy="true">
-      <span class="checkout-result-icon" aria-hidden="true">•••</span>
+      <span class="checkout-result-icon" id="checkout-result-icon" aria-hidden="true">•••</span>
       <div>
-        <h2>One moment</h2>
-        <p>Do not refresh or submit another payment while this check is running.</p>
+        <h2 id="checkout-result-title">One moment</h2>
+        <p id="checkout-result-message">Do not refresh or submit another payment while this check is running.</p>
       </div>
     </div>
     <div class="button-row checkout-result-actions">
@@ -24,17 +24,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <script is:inline>
     const result = document.querySelector('#checkout-result');
+    const resultIcon = document.querySelector('#checkout-result-icon');
+    const resultTitle = document.querySelector('#checkout-result-title');
+    const resultMessage = document.querySelector('#checkout-result-message');
     const summary = document.querySelector('#checkout-summary');
     const sessionId = new URLSearchParams(window.location.search).get('session_id');
 
     const showResult = (title, message, symbol, state) => {
-      if (!result) return;
+      if (!result || !resultIcon || !resultTitle || !resultMessage) return;
       result.setAttribute('aria-busy', 'false');
       result.dataset.state = state;
-      result.innerHTML = `
-        <span class="checkout-result-icon" aria-hidden="true">${symbol}</span>
-        <div><h2>${title}</h2><p>${message}</p></div>
-      `;
+      resultIcon.textContent = symbol;
+      resultTitle.textContent = title;
+      resultMessage.textContent = message;
     };
 
     if (!sessionId) {
