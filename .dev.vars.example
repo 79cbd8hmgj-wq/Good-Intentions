@@ -1,0 +1,10 @@
+# Copy this file to .dev.vars for local Cloudflare Pages testing.
+# Never commit real keys.
+
+STRIPE_SECRET_KEY=sk_test_replace_me
+STRIPE_SHIPPING_RATE_ID=shr_replace_me
+CHECKOUT_SITE_URL=http://localhost:8788
+
+# Test-only escape hatch. It works only with an sk_test_ key.
+# Remove or set to false in production.
+STRIPE_TEST_MODE_ALLOW_DRAFTS=true
