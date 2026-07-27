@@ -11,16 +11,11 @@ Generated functions/_generated/catalog.ts with 3 products.
 > good-intentions@0.1.0 check
 > astro check && tsc --noEmit
 
-[2m11:13:10[22m [34m[types][39m Generated [2m99ms[22m
-[2m11:13:10[22m [34m[check][39m Getting diagnostics for Astro files in /home/runner/work/Good-Intentions/Good-Intentions...
-[96mfunctions/api/checkout.ts[0m:[93m93[0m:[93m8[0m - [91merror[0m[90m ts(2367): [0mThis comparison appears to be unintentional because the types '"draft"' and '"available"' have no overlap.
-
-[7m93[0m   if ((product.status !== "available" || product.quantity !== 1) && !testDraftOverride) {
-[7m  [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-
+[2m11:14:27[22m [34m[types][39m Generated [2m116ms[22m
+[2m11:14:27[22m [34m[check][39m Getting diagnostics for Astro files in /home/runner/work/Good-Intentions/Good-Intentions...
 Result (20 files): 
-- 1 error
+- 0 errors
 - 0 warnings
 - 0 hints
 
-CHECK_EXIT_STATUS=1
+CHECK_EXIT_STATUS=0
