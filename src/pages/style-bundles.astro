@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import siteData from "../../content/site.json";
 const service = siteData.services.styleBundles;
 ---
-<BaseLayout title="Style bundles" description="Request a curated Good Intentions style bundle through direct communication with Sage.">
+<BaseLayout title="Style bundles" description="Tell Sage what you are into and let her build a secondhand style bundle around you.">
   <section class="page-hero">
-    <span class="eyebrow">Personal curation</span>
+    <span class="eyebrow">Tell Sage the vibe</span>
     <h1>Style bundles</h1>
     <p>{service.summary}</p>
     <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Message Sage on Instagram</a>
@@ -15,7 +15,10 @@ const service = siteData.services.styleBundles;
     <div class="feature-copy">
       <h2>How it works</h2>
       <ol class="process-list">{service.process.map((step) => <li>{step}</li>)}</ol>
-      <div class="checkout-note"><strong>Starting point: ${service.startingPrice}</strong><p>The supplied references indicate a small bundle has previously been offered at this price. Current contents and pricing are confirmed directly with Sage.</p></div>
+      <div class="checkout-note">
+        <strong>Bundles have started at ${service.startingPrice}</strong>
+        <p>That has covered a small bundle in the past. Sage will confirm the current price, number of pieces, and timing with you before she starts looking.</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
