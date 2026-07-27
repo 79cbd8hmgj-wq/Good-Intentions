@@ -1,19 +1,62 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import siteData from "../../content/site.json";
-const donation = siteData.services.donations;
 ---
-<BaseLayout title="Donate clothing" description="Submit secondhand clothing photos to Good Intentions for possible acceptance.">
-  <section class="page-hero">
-    <span class="eyebrow">Give good clothes another life</span>
+<BaseLayout title="Donate clothing" description="Send Sage photos of secondhand clothing for possible acceptance by Good Intentions.">
+  <section class="page-hero page-hero-narrow">
+    <span class="eyebrow">Before you bring over a bag</span>
     <h1>Clothing donations</h1>
-    <p>{donation.summary}</p>
+    <p>Send clear photos first. Sage will look through the pieces and tell you what fits the shop before anything is shipped, carried to a meetup, or brought to an event.</p>
     <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Send photos on Instagram</a>
   </section>
-  <section class="page-section donation-grid">
-    <article class="donation-card"><span>01</span><h2>Send clear photos</h2><p>Include the full item, label, size tag, material tag, and any visible wear or flaws.</p></article>
-    <article class="donation-card"><span>02</span><h2>Wait for acceptance</h2><p>Sage decides whether each item fits the shop. Sending photos does not guarantee acceptance.</p></article>
-    <article class="donation-card"><span>03</span><h2>Arrange the handoff</h2><p>Accepted items can be shipped, handed over through a prearranged meetup, or brought to an event when confirmed.</p></article>
+
+  <section class="page-section donation-photo-grid">
+    <div class="photo-guide" aria-label="Photos to include when offering clothing">
+      <span class="photo-guide-title">Four useful photos</span>
+      <div><b>01</b><span>the full piece</span></div>
+      <div><b>02</b><span>brand + size tag</span></div>
+      <div><b>03</b><span>material tag</span></div>
+      <div><b>04</b><span>any wear or flaws</span></div>
+    </div>
+    <div class="donation-before-copy">
+      <span class="eyebrow">Before messaging</span>
+      <h2>Make it easy to tell what the item really is.</h2>
+      <p>Natural light is best. Lay the item flat or hang it up, and include close-ups of anything Sage should know about.</p>
+      <p>You do not need professional photos. They just need to be clear enough to judge the style and condition.</p>
+    </div>
   </section>
-  <section class="page-section"><div class="checkout-note"><strong>Compensation</strong><p>{donation.compensation}</p></div></section>
+
+  <section class="page-section donation-flow-section">
+    <div class="section-heading"><div><span class="eyebrow">The full process</span><h2>Photos first. Handoff second.</h2></div></div>
+    <ol class="donation-flow">
+      <li><span>01</span><div><h3>Send the photos</h3><p>Include the item, tags, and any damage or wear.</p></div></li>
+      <li><span>02</span><div><h3>Sage reviews the pieces</h3><p>She accepts what fits the shop and passes on what does not.</p></div></li>
+      <li><span>03</span><div><h3>Arrange the handoff</h3><p>Approved items can be shipped, handed over at a planned meetup, or brought to an event.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="page-section donation-fit-grid">
+    <div class="donation-fit-panel">
+      <span class="eyebrow">Usually worth sending</span>
+      <ul class="plain-checklist">
+        <li>Clean, wearable pieces with personality</li>
+        <li>2000s, vintage, alternative, bohemian, or statement items</li>
+        <li>Clothes with readable tags and visible condition</li>
+        <li>Accessories that are complete and usable</li>
+      </ul>
+    </div>
+    <div class="donation-fit-panel donation-fit-panel-muted">
+      <span class="eyebrow">Please skip</span>
+      <ul class="plain-checklist">
+        <li>Wet, moldy, or heavily stained clothing</li>
+        <li>Items with major damage that was not photographed</li>
+        <li>Bags dropped off without Sage approving them first</li>
+        <li>Anything you need returned if it is not accepted</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page-section donation-note-section">
+    <div class="soft-note"><strong>A quick note about payment</strong><p>Good Intentions usually accepts these as donations, without cash or store credit in return. Sage will make that clear before arranging the handoff.</p></div>
+  </section>
 </BaseLayout>
