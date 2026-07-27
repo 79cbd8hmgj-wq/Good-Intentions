@@ -4,16 +4,16 @@ import siteData from "../../../content/site.json";
 
 const categories = [...new Set(siteData.products.map((product) => product.category))];
 ---
-<BaseLayout title="Shop" description="Browse Good Intentions one-of-one secondhand clothing and catalog previews.">
+<BaseLayout title="Shop" description="Browse one-of-one secondhand clothing picked by Sage for Good Intentions.">
   <section class="page-hero">
-    <span class="eyebrow">One-of-one secondhand</span>
+    <span class="eyebrow">One piece means one piece</span>
     <h1>Shop Good Intentions</h1>
     <p>{siteData.commerce.developmentNotice}</p>
   </section>
 
   <section class="page-section">
     <div class="button-row" data-filters>
-      <button class="button button-secondary is-active" type="button" data-filter="all">All</button>
+      <button class="button button-secondary is-active" type="button" data-filter="all">Everything</button>
       {categories.map((category) => <button class="button button-secondary" type="button" data-filter={category}>{category}</button>)}
     </div>
 
@@ -21,10 +21,10 @@ const categories = [...new Set(siteData.products.map((product) => product.catego
       {siteData.products.map((product) => (
         <div data-category={product.category}>
           <a class="product-card" href={`/shop/${product.slug}`}>
-            <div class="product-visual"><span>{product.name}</span></div>
+            <div class="product-visual"><span class="product-placeholder">Photo coming with the first drop</span></div>
             <div class="product-meta">
-              <div><h3>{product.name}</h3><p>{product.category} · {product.size}</p></div>
-              <strong>${product.price}</strong>
+              <div><h3>{product.name}</h3><p>{product.category} · details coming soon</p></div>
+              <strong class="draft-label">Preview</strong>
             </div>
           </a>
         </div>
@@ -32,8 +32,8 @@ const categories = [...new Set(siteData.products.map((product) => product.catego
     </div>
 
     <div class="checkout-note">
-      <strong>Direct checkout foundation</strong>
-      <p>The product model already includes quantity, status, and a secure checkout URL. Purchase buttons remain disabled until Sage supplies real product details, approves policies, and creates payment links.</p>
+      <strong>The first website drop is still being put together.</strong>
+      <p>Real photos, measurements, condition notes, shipping details, and secure purchase links will replace these preview listings before anyone can buy through the site.</p>
     </div>
   </section>
 
