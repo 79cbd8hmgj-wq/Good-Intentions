@@ -97,8 +97,8 @@ export async function onRequestPost({ request, env }: PagesContext<CheckoutEnv>)
   const successUrl = new URL("/checkout/success", siteOrigin);
   successUrl.searchParams.set("session_id", "{CHECKOUT_SESSION_ID}");
 
-  const cancelUrl = new URL(`/shop/${encodeURIComponent(product.slug)}`, siteOrigin);
-  cancelUrl.searchParams.set("checkout", "cancelled");
+  const cancelUrl = new URL("/checkout/cancelled", siteOrigin);
+  cancelUrl.searchParams.set("product", product.slug);
 
   const body = new URLSearchParams();
   body.set("mode", "payment");
@@ -116,7 +116,9 @@ export async function onRequestPost({ request, env }: PagesContext<CheckoutEnv>)
   body.set("metadata[product_slug]", product.slug);
   body.set("payment_intent_data[metadata][store]", STORE_ID);
   body.set("payment_intent_data[metadata][product_slug]", product.slug);
-  body.set("shipping_address_collection[allowed_countries][0]", checkoutSettings.shippingCountries[0] ?? "US");
+  checkoutSettings.shippingCountries.forEach((country, index) => {
+    body.set(`shipping_address_collection[allowed_countries][${index}]`, country);
+  });
   body.set("shipping_options[0][shipping_rate]", env.STRIPE_SHIPPING_RATE_ID);
 
   if (checkoutSettings.automaticTaxEnabled) {
@@ -147,11 +149,4 @@ export async function onRequestPost({ request, env }: PagesContext<CheckoutEnv>)
   }
 
   return Response.redirect(session.url, 303);
-}
-
-export function onRequest(): Response {
-  return new Response("Method not allowed", {
-    status: 405,
-    headers: { Allow: "POST" },
-  });
 }
