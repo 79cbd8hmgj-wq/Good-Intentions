@@ -13,8 +13,11 @@ const { product } = Astro.props;
 const canCheckout = siteData.commerce.checkoutEnabled && product.status === "available" && Boolean(product.checkoutUrl);
 const checkoutHref = product.checkoutUrl ?? "#";
 const isDraft = product.status === "draft";
+const pageDescription = isDraft
+  ? `Preview listing for ${product.name} from Good Intentions. Final photos and product details are still being prepared.`
+  : `${product.name} from Good Intentions. ${product.condition}`;
 ---
-<BaseLayout title={product.name} description={`${product.name} from Good Intentions. ${product.condition}`}>
+<BaseLayout title={product.name} description={pageDescription} noindex={isDraft}>
   <section class="page-section detail-shell">
     <div class="detail-art"><span>{isDraft ? "Photo coming soon" : product.name}</span></div>
     <div class="detail-copy">
