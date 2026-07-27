@@ -2,21 +2,46 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import siteData from "../../content/site.json";
 ---
-<BaseLayout title="About" description="Meet Sage and learn about the point of view behind Good Intentions.">
-  <section class="page-hero">
-    <span class="eyebrow">Curated by Sage</span>
-    <h1>Secondhand clothing with a point of view.</h1>
-    <p>Good Intentions is a founder-led thrift and styling business built around expressive clothing, themed collections, community events, and the belief that personal style should feel good instead of fitting one narrow aesthetic.</p>
+<BaseLayout title="About" description="Meet Sage and learn about the taste behind Good Intentions.">
+  <section class="page-hero page-hero-narrow">
+    <span class="eyebrow">Picked and styled by Sage</span>
+    <h1>Good Intentions changes with the mood.</h1>
+    <p>One collection might be glossy 2000s pop. The next could be lace, velvet, festival color, or something a little witchy. Sage is the part that ties it together.</p>
   </section>
-  <section class="page-section feature-grid">
-    <div class="feature-copy">
-      <h2>One brand, many moods.</h2>
-      <p>The supplied collection references move between Y2K pop, hipster nostalgia, cottagecore, festival color, whimsigoth, bohemian pieces, and dreamy editorial styling. Sage's curation is the consistent thread.</p>
-      <p>{siteData.brand.visualDirection}</p>
-      <div class="button-row">
-        {siteData.brand.confirmedWords.map((word) => <span class="button button-secondary">{word}</span>)}
-      </div>
+
+  <section class="page-section founder-story-grid">
+    <div class="founder-portrait-placeholder" aria-label="Founder portrait placeholder">
+      <span>Photo of Sage<br />coming here</span>
+      <i aria-hidden="true"></i>
     </div>
-    <div class="feature-art"><span>Good clothes.<br />Good vibes.<br />Good intentions.</span></div>
+    <div class="founder-story-copy">
+      <span class="eyebrow">The person behind the rack</span>
+      <h2>The common thread is Sage.</h2>
+      <p>Her collections often begin with a song, a movie, a mood, or one piece that is too good to leave behind. From there, Sage builds a whole direction around the clothes.</p>
+      <p>She does not curate around one fixed aesthetic. She follows the feeling of the pieces and mixes secondhand finds into collections that feel specific without feeling costume-like.</p>
+      <p>The shop is meant to be approachable, too. You can ask questions, talk through a style idea, or admit that you have no idea what the right fashion word is.</p>
+    </div>
+  </section>
+
+  <section class="page-section point-of-view-section">
+    <span class="eyebrow">Not one aesthetic. One point of view.</span>
+    <div class="mood-ribbon" aria-label="Good Intentions brand moods">
+      {siteData.brand.confirmedWords.map((word) => <span>{word}</span>)}
+      <span>music-inspired</span>
+      <span>secondhand</span>
+      <span>a little unexpected</span>
+    </div>
+  </section>
+
+  <section class="page-section about-belief-grid">
+    <div>
+      <span class="eyebrow">Why secondhand</span>
+      <h2>The interesting clothes already exist.</h2>
+    </div>
+    <p>Good Intentions is about keeping good pieces moving, making personal style feel less disposable, and giving clothes another chance to land with the person who will actually wear them.</p>
+  </section>
+
+  <section class="page-section about-quote-section">
+    <blockquote>Good clothes do not have to match one trend. They just have to feel right on the person wearing them.</blockquote>
   </section>
 </BaseLayout>

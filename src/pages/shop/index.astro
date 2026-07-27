@@ -2,52 +2,57 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import siteData from "../../../content/site.json";
 
-const categories = [...new Set(siteData.products.map((product) => product.category))];
+const collectionNames = new Map(siteData.collections.map((collection) => [collection.slug, collection.name]));
 ---
-<BaseLayout title="Shop" description="Browse Good Intentions one-of-one secondhand clothing and catalog previews.">
-  <section class="page-hero">
-    <span class="eyebrow">One-of-one secondhand</span>
+<BaseLayout title="Shop" description="Browse one-of-one secondhand clothing picked by Sage for Good Intentions.">
+  <section class="page-hero page-hero-narrow">
+    <span class="eyebrow">The online rack is being built</span>
     <h1>Shop Good Intentions</h1>
-    <p>{siteData.commerce.developmentNotice}</p>
+    <p>The first website drop is being photographed, measured, and priced now. Nothing shown here can be purchased until Sage has checked every detail.</p>
   </section>
 
-  <section class="page-section">
-    <div class="button-row" data-filters>
-      <button class="button button-secondary is-active" type="button" data-filter="all">All</button>
-      {categories.map((category) => <button class="button button-secondary" type="button" data-filter={category}>{category}</button>)}
+  <section class="page-section shop-launch-grid">
+    <div class="shop-poster" aria-label="First online drop coming soon">
+      <span class="eyebrow">First online drop</span>
+      <strong>Coming together piece by piece.</strong>
+      <p>Real clothes. Real measurements. No mystery listings.</p>
+      <i class="poster-orb poster-orb-one" aria-hidden="true"></i>
+      <i class="poster-orb poster-orb-two" aria-hidden="true"></i>
     </div>
+    <div class="shop-launch-copy">
+      <span class="eyebrow">Before a piece goes live</span>
+      <h2>Sage is checking the things that matter.</h2>
+      <ul class="plain-checklist">
+        <li>Clear photos from more than one angle</li>
+        <li>Tag size and actual garment measurements</li>
+        <li>Condition notes and close-ups of any flaws</li>
+        <li>Material, fit notes, price, and shipping details</li>
+      </ul>
+      <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">See current finds on Instagram</a>
+    </div>
+  </section>
 
-    <div class="product-grid" id="catalog">
-      {siteData.products.map((product) => (
-        <div data-category={product.category}>
-          <a class="product-card" href={`/shop/${product.slug}`}>
-            <div class="product-visual"><span>{product.name}</span></div>
-            <div class="product-meta">
-              <div><h3>{product.name}</h3><p>{product.category} · {product.size}</p></div>
-              <strong>${product.price}</strong>
-            </div>
-          </a>
-        </div>
+  <section class="page-section preview-list-section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Pieces being prepared</span>
+        <h2>A look at what may be in the first drop</h2>
+        <p>A few pieces are already being prepared. Their final names and details may change once Sage finishes photographing and measuring them.</p>
+      </div>
+    </div>
+    <div class="product-preview-list">
+      {siteData.products.map((product, index) => (
+        <article class="product-preview-row">
+          <span class="preview-number">0{index + 1}</span>
+          <div class="preview-swatch" aria-hidden="true"></div>
+          <div class="preview-copy">
+            <span>{collectionNames.get(product.collection)}</span>
+            <h3>{product.name}</h3>
+            <p>{product.category} · final photos and details pending</p>
+          </div>
+          <strong>In progress</strong>
+        </article>
       ))}
     </div>
-
-    <div class="checkout-note">
-      <strong>Direct checkout foundation</strong>
-      <p>The product model already includes quantity, status, and a secure checkout URL. Purchase buttons remain disabled until Sage supplies real product details, approves policies, and creates payment links.</p>
-    </div>
   </section>
-
-  <script is:inline>
-    const controls = document.querySelector('[data-filters]');
-    const cards = document.querySelectorAll('#catalog > [data-category]');
-    controls?.addEventListener('click', (event) => {
-      const button = event.target.closest('[data-filter]');
-      if (!button) return;
-      controls.querySelectorAll('[data-filter]').forEach((item) => item.classList.toggle('is-active', item === button));
-      const filter = button.dataset.filter;
-      cards.forEach((card) => {
-        card.hidden = filter !== 'all' && card.dataset.category !== filter;
-      });
-    });
-  </script>
 </BaseLayout>

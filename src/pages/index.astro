@@ -7,15 +7,15 @@ const featuredProducts = siteData.products.slice(0, 3);
 <BaseLayout>
   <section class="hero">
     <div class="hero-copy">
-      <span class="eyebrow">2000s · hipster · good vibes · free-spirited</span>
-      <h1>Curated pieces.<br /><em>Good Intentions.</em></h1>
+      <span class="eyebrow">Secondhand clothing, styled by Sage</span>
+      <h1>Clothes with a past.<br /><em>Outfits that feel like you.</em></h1>
       <p>{siteData.business.description}</p>
       <div class="button-row">
-        <a class="button button-primary" href="/shop">Shop new arrivals</a>
-        <a class="button button-secondary" href="/style-bundles">Explore style bundles</a>
+        <a class="button button-primary" href="/shop">Preview the first drop</a>
+        <a class="button button-secondary" href="/style-bundles">Get a style bundle</a>
       </div>
     </div>
-    <div class="hero-art" aria-label="Good Intentions collection preview">
+    <div class="hero-art" aria-label="A preview of Good Intentions themed collections">
       <div class="hero-card hero-card-a"><strong>Shakira<br />Collection</strong></div>
       <div class="hero-card hero-card-b"><strong>A Midsummer<br />Night's Dream</strong></div>
       <div class="hero-card hero-card-c"><strong>Zara Larsson</strong></div>
@@ -23,39 +23,49 @@ const featuredProducts = siteData.products.slice(0, 3);
     </div>
   </section>
 
-  <section class="value-strip" aria-label="Good Intentions values">
-    <article><b>One-of-one</b><p>Unique secondhand pieces</p></article>
-    <article><b>Curated with intention</b><p>Handpicked by Sage</p></article>
-    <article><b>Community first</b><p>Markets, music, and good vibes</p></article>
-    <article><b>Expressive style</b><p>More than one aesthetic</p></article>
+  <section class="value-strip" aria-label="What makes Good Intentions different">
+    <article><b>Found one at a time</b><p>Most pieces are one-of-one.</p></article>
+    <article><b>Picked by Sage</b><p>No random bulk inventory.</p></article>
+    <article><b>Made to be worn</b><p>Clothes with personality, not perfection.</p></article>
+    <article><b>See you around</b><p>Shop online or catch a local market.</p></article>
   </section>
 
   <section class="page-section">
     <div class="section-heading">
-      <div><h2>Themed collections</h2><p>Music, mood, nostalgia, and personal style shape each collection.</p></div>
+      <div>
+        <span class="eyebrow">Past and present drops</span>
+        <h2>Collections with a point of view</h2>
+        <p>Some start with a song, some with a movie, and some with one perfect piece Sage cannot stop thinking about.</p>
+      </div>
       <a class="text-link" href="/shop">Browse the shop →</a>
     </div>
     <div class="collection-grid">
       {siteData.collections.slice(0, 3).map((collection) => (
         <article class:list={["collection-card", `palette-${collection.palette}`]}>
-          <div><span class="eyebrow">Collection archive</span><h3>{collection.name}</h3><p>{collection.description}</p></div>
+          <div><span class="eyebrow">From the archive</span><h3>{collection.name}</h3><p>{collection.description}</p></div>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="page-section">
+  <section class="page-section shop-preview">
     <div class="section-heading">
-      <div><h2>Shop foundation</h2><p>Example listings interpreted from the supplied Instagram references. Real measurements and availability are still required.</p></div>
-      <a class="text-link" href="/shop">View catalog →</a>
+      <div>
+        <span class="eyebrow">First online drop in progress</span>
+        <h2>A few pieces from the rack</h2>
+        <p>Sage is still adding the real photos, measurements, and final details for the first website listings.</p>
+      </div>
+      <a class="text-link" href="/shop">See the shop preview →</a>
     </div>
     <div class="product-grid">
       {featuredProducts.map((product) => (
         <a class="product-card" href={`/shop/${product.slug}`}>
-          <div class="product-visual"><span>{product.name}</span></div>
+          <div class="product-visual">
+            <span class="product-placeholder">Photo coming with the first drop</span>
+          </div>
           <div class="product-meta">
-            <div><h3>{product.name}</h3><p>{product.category} · {product.size}</p></div>
-            <strong>${product.price}</strong>
+            <div><h3>{product.name}</h3><p>{product.category} · details coming soon</p></div>
+            <strong class="draft-label">Preview</strong>
           </div>
         </a>
       ))}
@@ -65,13 +75,13 @@ const featuredProducts = siteData.products.slice(0, 3);
   <section class="page-section feature-grid">
     <div class="feature-art"><span>Style<br />bundles</span></div>
     <div class="feature-copy">
-      <span class="eyebrow">Personal curation</span>
-      <h2>Built through real conversation.</h2>
+      <span class="eyebrow">Curated for one person</span>
+      <h2>Tell Sage what you like. She will build from there.</h2>
       <p>{siteData.services.styleBundles.summary}</p>
       <ol class="process-list">
         {siteData.services.styleBundles.process.slice(0, 3).map((step) => <li>{step}</li>)}
       </ol>
-      <a class="button button-primary" href="/style-bundles">How bundles work</a>
+      <a class="button button-primary" href="/style-bundles">See how bundles work</a>
     </div>
   </section>
 </BaseLayout>

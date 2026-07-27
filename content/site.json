@@ -2,8 +2,8 @@
   "business": {
     "name": "Good Intentions",
     "owner": "Sage",
-    "tagline": "Curated secondhand. Good intentions.",
-    "description": "One-of-one vintage and secondhand clothing, themed collections, style bundles, personal styling, and community-rooted good vibes.",
+    "tagline": "Secondhand clothes, picked with good intentions.",
+    "description": "Sage finds one-of-one secondhand pieces, builds collections around music and mood, and helps people put together outfits that actually feel like them.",
     "region": "Capital Region, New York",
     "instagram": "https://www.instagram.com/good.intentions.collections/",
     "founderInstagram": "https://www.instagram.com/sage.nicole111/",
@@ -23,31 +23,31 @@
     "shipping": "United States shipping only",
     "localPickup": "Not offered for normal website orders. Prearranged handoff may happen at in-person events.",
     "inventoryModel": "Most clothing is assumed to be one-of-one until Sage confirms otherwise.",
-    "developmentNotice": "The catalog and prices below are foundation examples based on supplied Instagram references. Checkout remains disabled until real inventory, measurements, policies, and payment links are approved."
+    "developmentNotice": "This is a working website preview. The first real online drop, final measurements, store policies, and checkout links still need to be added."
   },
   "collections": [
     {
       "slug": "shakira",
       "name": "Shakira Collection",
-      "description": "Y2K performance energy, metallic details, statement belts, skirts, and bold going-out pieces.",
+      "description": "Metallic details, statement belts, low-rise energy, and pieces made for going out.",
       "palette": "sunset"
     },
     {
       "slug": "midsummer-nights-dream",
       "name": "A Midsummer Night's Dream",
-      "description": "Earthy fairy energy, ethereal layers, floral texture, lace, and dreamy color.",
+      "description": "Lace, soft layers, florals, and clothes that look like they belong in a fairy-lit backyard.",
       "palette": "forest"
     },
     {
       "slug": "zara-larsson",
       "name": "Zara Larsson Collection",
-      "description": "Bright pop-star styling, saturated Y2K color, playful silhouettes, and statement pieces.",
+      "description": "Bright colors, playful shapes, and glossy 2000s pop-girl energy.",
       "palette": "candy"
     },
     {
       "slug": "whimsigoth",
       "name": "Whimsigoth Collection",
-      "description": "Celestial color, flowing layers, witchy texture, and romantic alternative styling.",
+      "description": "Celestial prints, flowing layers, velvet, and a little witchy drama.",
       "palette": "midnight"
     }
   ],
@@ -103,38 +103,38 @@
   ],
   "services": {
     "styleBundles": {
-      "summary": "Personalized secondhand pieces selected through direct communication with Sage.",
+      "summary": "Tell Sage what you wear, what you wish you wore, and what you never want to see. She will put together a secondhand bundle around you.",
       "startingPrice": 30,
       "confirmedInputs": ["sizes", "measurements", "budget", "style inspiration", "preferred colors", "disliked colors or items"],
       "process": [
-        "Message Sage and describe the look, sizes, measurements, budget, inspiration, likes, dislikes, and goals.",
-        "Sage confirms the bundle scope, current price, timing, and availability directly.",
-        "Sage curates the pieces and communicates any needed decisions.",
-        "The completed bundle ships within the United States or may be handed over at a prearranged in-person event."
+        "Send Sage your sizes, measurements, budget, inspiration, favorite colors, and anything you absolutely do not want.",
+        "She will talk it through with you, confirm the price and timing, and make sure she understands the vibe.",
+        "Sage finds and styles the pieces, checking in whenever a choice needs your input.",
+        "Your bundle ships within the U.S. or can be handed off at an event if arranged ahead of time."
       ]
     },
     "personalStyling": {
-      "summary": "Personal styling is arranged through direct communication rather than a fixed package.",
+      "summary": "There is no one-size-fits-all styling package. Message Sage and talk through what you need, whether that is one outfit, a new direction, or help making your closet feel more like you.",
       "examples": ["outfit direction", "aesthetic development", "wardrobe guidance", "special-event styling"]
     },
     "donations": {
-      "summary": "Potential donors send photos first. Sage accepts or declines the items before shipping or meetup.",
+      "summary": "Send Sage clear photos first. She will let you know what she can use before anything is shipped or brought to an event.",
       "handoff": ["shipping after approval", "prearranged meetup", "in-person event handoff"],
       "compensation": "Donors do not normally receive payment, credit, or another benefit."
     }
   },
   "events": {
     "enabled": true,
-    "summary": "Good Intentions frequently attends vintage markets, pop-ups, and community events in New York and nearby areas.",
+    "summary": "You can usually find Good Intentions at vintage markets, pop-ups, and community events around New York and nearby.",
     "confirmedCalendar": []
   },
   "policies": {
     "status": "draft",
-    "shipping": "Orders placed through the website will ship within the United States.",
-    "returns": "A final return and exchange policy must be approved before checkout is enabled.",
-    "oneOfOne": "An item is not reserved until payment is completed. Most pieces are expected to have a quantity of one.",
-    "condition": "Secondhand items may show normal signs of wear. Known flaws should be photographed and described in the listing.",
-    "customServices": "Style bundles and personal styling are arranged directly. Scope, price, turnaround, and cancellation terms must be confirmed before payment.",
-    "donations": "Sending photographs does not guarantee acceptance. Do not ship or bring items until Sage confirms acceptance and a handoff method."
+    "shipping": "Website orders will ship within the United States. Final shipping rates and handling times will be posted before checkout opens.",
+    "returns": "The return and exchange policy is still being finalized and will be posted clearly before the first website sale.",
+    "oneOfOne": "Most pieces are one-of-one. An item is not held until payment is complete.",
+    "condition": "These are secondhand clothes, so some wear is normal. Any known flaw will be photographed and written into the listing.",
+    "customServices": "Style bundles and personal styling start with a direct conversation. Sage will confirm the price, timing, and what is included before payment.",
+    "donations": "Please send photos before shipping or bringing anything. Sage will confirm what she can accept and how to hand it off."
   }
 }
