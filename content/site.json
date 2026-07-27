@@ -17,13 +17,17 @@
   },
   "commerce": {
     "goal": "direct website checkout",
-    "checkoutMode": "stripe-payment-links",
+    "provider": "stripe",
+    "checkoutMode": "stripe-checkout-sessions",
     "checkoutEnabled": false,
     "currency": "USD",
+    "sessionExpiryMinutes": 30,
+    "shippingCountries": ["US"],
+    "automaticTaxEnabled": false,
     "shipping": "United States shipping only",
     "localPickup": "Not offered for normal website orders. Prearranged handoff may happen at in-person events.",
     "inventoryModel": "Most clothing is assumed to be one-of-one until Sage confirms otherwise.",
-    "developmentNotice": "This is a working website preview. The first real online drop, final measurements, store policies, and checkout links still need to be added."
+    "developmentNotice": "The secure checkout flow is being connected now. Products will stay unavailable until their photos, measurements, policies, shipping, and inventory checks are complete."
   },
   "collections": [
     {
@@ -65,8 +69,7 @@
       "color": "Black and silver",
       "collection": "shakira",
       "status": "draft",
-      "quantity": 1,
-      "checkoutUrl": null
+      "quantity": 1
     },
     {
       "slug": "ivory-lace-slip",
@@ -81,8 +84,7 @@
       "color": "Ivory",
       "collection": "midsummer-nights-dream",
       "status": "draft",
-      "quantity": 1,
-      "checkoutUrl": null
+      "quantity": 1
     },
     {
       "slug": "turquoise-ruched-halter",
@@ -97,8 +99,7 @@
       "color": "Turquoise",
       "collection": "zara-larsson",
       "status": "draft",
-      "quantity": 1,
-      "checkoutUrl": null
+      "quantity": 1
     }
   ],
   "services": {
