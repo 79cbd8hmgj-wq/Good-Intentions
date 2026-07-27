@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteData from "../../../content/site.json";
+
+const categories = [...new Set(siteData.products.map((product) => product.category))];
+---
+<BaseLayout title="Shop" description="Browse Good Intentions one-of-one secondhand clothing and catalog previews.">
+  <section class="page-hero">
+    <span class="eyebrow">One-of-one secondhand</span>
+    <h1>Shop Good Intentions</h1>
+    <p>{siteData.commerce.developmentNotice}</p>
+  </section>
+
+  <section class="page-section">
+    <div class="button-row" data-filters>
+      <button class="button button-secondary is-active" type="button" data-filter="all">All</button>
+      {categories.map((category) => <button class="button button-secondary" type="button" data-filter={category}>{category}</button>)}
+    </div>
+
+    <div class="product-grid" id="catalog">
+      {siteData.products.map((product) => (
+        <div data-category={product.category}>
+          <a class="product-card" href={`/shop/${product.slug}`}>
+            <div class="product-visual"><span>{product.name}</span></div>
+            <div class="product-meta">
+              <div><h3>{product.name}</h3><p>{product.category} · {product.size}</p></div>
+              <strong>${product.price}</strong>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="checkout-note">
+      <strong>Direct checkout foundation</strong>
+      <p>The product model already includes quantity, status, and a secure checkout URL. Purchase buttons remain disabled until Sage supplies real product details, approves policies, and creates payment links.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    const controls = document.querySelector('[data-filters]');
+    const cards = document.querySelectorAll('#catalog > [data-category]');
+    controls?.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-filter]');
+      if (!button) return;
+      controls.querySelectorAll('[data-filter]').forEach((item) => item.classList.toggle('is-active', item === button));
+      const filter = button.dataset.filter;
+      cards.forEach((card) => {
+        card.hidden = filter !== 'all' && card.dataset.category !== filter;
+      });
+    });
+  </script>
+</BaseLayout>

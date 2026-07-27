@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteData from "../../content/site.json";
+---
+<BaseLayout title="Events" description="Find Good Intentions at vintage markets and community pop-ups.">
+  <section class="page-hero">
+    <span class="eyebrow">Shop in person</span>
+    <h1>Markets and pop-ups</h1>
+    <p>{siteData.events.summary} Website orders ship, while event shoppers can browse and purchase directly from the racks.</p>
+  </section>
+  <section class="page-section">
+    <article class="event-card">
+      <div class="event-art"><span>Upcoming<br />events</span></div>
+      <div class="event-copy">
+        <span class="eyebrow">Calendar foundation</span>
+        <h2>Dates being confirmed</h2>
+        <p>The supplied Instagram references show frequent appearances at vintage markets, community pop-ups, and themed events across the Capital Region and nearby areas.</p>
+        <p>Each future event entry will include the date, time, venue, address, flyer, organizer link, and what Sage plans to bring.</p>
+        <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Check Instagram for current dates</a>
+      </div>
+    </article>
+  </section>
+</BaseLayout>

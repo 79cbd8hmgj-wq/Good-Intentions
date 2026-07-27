@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteData from "../../content/site.json";
+const service = siteData.services.styleBundles;
+---
+<BaseLayout title="Style bundles" description="Request a curated Good Intentions style bundle through direct communication with Sage.">
+  <section class="page-hero">
+    <span class="eyebrow">Personal curation</span>
+    <h1>Style bundles</h1>
+    <p>{service.summary}</p>
+    <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Message Sage on Instagram</a>
+  </section>
+  <section class="page-section feature-grid">
+    <div class="feature-art"><span>Made<br />for you</span></div>
+    <div class="feature-copy">
+      <h2>How it works</h2>
+      <ol class="process-list">{service.process.map((step) => <li>{step}</li>)}</ol>
+      <div class="checkout-note"><strong>Starting point: ${service.startingPrice}</strong><p>The supplied references indicate a small bundle has previously been offered at this price. Current contents and pricing are confirmed directly with Sage.</p></div>
+    </div>
+  </section>
+</BaseLayout>
