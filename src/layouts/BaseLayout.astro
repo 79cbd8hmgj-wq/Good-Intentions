@@ -63,15 +63,28 @@ const nav = [
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer">
-      <div class="footer-grid">
-        <div>
+      <div class="footer-shell">
+        <div class="footer-intro">
           <a class="brand brand-small" href="/"><span class="brand-orb" aria-hidden="true"></span><span>good<br />Intentions</span></a>
-          <p>{siteData.business.description}</p>
-          <p class="footer-shipping">{siteData.commerce.shipping}</p>
+          <div>
+            <p>One-of-one secondhand clothing, themed collections, and personal styling by Sage.</p>
+            <span>{siteData.commerce.shipping}</span>
+          </div>
         </div>
-        <div><h2>Explore</h2><a href="/shop">Shop</a><a href="/events">Events</a><a href="/about">About</a></div>
-        <div><h2>Services</h2><a href="/style-bundles">Style bundles</a><a href="/personal-styling">Personal styling</a><a href="/donate">Donate</a></div>
-        <div><h2>Follow</h2><a href={siteData.business.instagram} target="_blank" rel="noreferrer">Instagram</a><a href={siteData.business.depop} target="_blank" rel="noreferrer">Depop archive</a><a href="/policies">Policies</a></div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/shop">Shop</a>
+          <a href="/style-bundles">Style bundles</a>
+          <a href="/personal-styling">Personal styling</a>
+          <a href="/events">Events</a>
+          <a href="/donate">Donate</a>
+          <a href="/about">About</a>
+          <a href="/policies">Policies</a>
+        </nav>
+        <div class="footer-follow">
+          <span>Follow the newest finds</span>
+          <a href={siteData.business.instagram} target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a href={siteData.business.depop} target="_blank" rel="noreferrer">Depop archive ↗</a>
+        </div>
       </div>
       <div class="footer-bottom"><span>© {new Date().getFullYear()} Good Intentions</span><span>Picked and styled by Sage</span></div>
     </footer>
