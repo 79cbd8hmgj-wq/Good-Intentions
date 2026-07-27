@@ -94,16 +94,15 @@ export async function onRequestPost({ request, env }: PagesContext<CheckoutEnv>)
     return redirectToError(siteOrigin, "unavailable");
   }
 
-  const successUrl = new URL("/checkout/success", siteOrigin);
-  successUrl.searchParams.set("session_id", "{CHECKOUT_SESSION_ID}");
-
+  // Keep Stripe's placeholder literal in the decoded form value so Stripe can replace it.
+  const successUrl = `${siteOrigin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`;
   const cancelUrl = new URL("/checkout/cancelled", siteOrigin);
   cancelUrl.searchParams.set("product", product.slug);
 
   const body = new URLSearchParams();
   body.set("mode", "payment");
   body.set("submit_type", "pay");
-  body.set("success_url", successUrl.toString());
+  body.set("success_url", successUrl);
   body.set("cancel_url", cancelUrl.toString());
   body.set("client_reference_id", product.slug);
   body.set("expires_at", String(Math.floor(Date.now() / 1000) + checkoutSettings.sessionExpiryMinutes * 60));
