@@ -3,21 +3,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import siteData from "../../content/site.json";
 ---
 <BaseLayout title="Events" description="Find Good Intentions at vintage markets and community pop-ups.">
-  <section class="page-hero">
-    <span class="eyebrow">Shop the racks in person</span>
+  <section class="page-hero page-hero-narrow">
+    <span class="eyebrow">Shop the rack in person</span>
     <h1>Markets and pop-ups</h1>
-    <p>{siteData.events.summary} Online orders ship, but events are where you can see the clothes up close, try things on, and talk with Sage.</p>
+    <p>Events are where Good Intentions makes the most sense: clothes on the rack, music in the room, and Sage there to help you find something.</p>
   </section>
-  <section class="page-section">
-    <article class="event-card">
-      <div class="event-art"><span>See you<br />out there</span></div>
-      <div class="event-copy">
-        <span class="eyebrow">New dates coming soon</span>
-        <h2>The next rack is being packed.</h2>
-        <p>Sage regularly brings Good Intentions to vintage markets, neighborhood pop-ups, and community events around the Capital Region and nearby.</p>
-        <p>Until the website calendar is filled in, Instagram is the best place to catch the newest date, location, and event flyer.</p>
-        <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Check current event dates</a>
+
+  <section class="page-section event-status-grid">
+    <div class="next-event-panel">
+      <span class="eyebrow">Next date</span>
+      <strong>Being confirmed</strong>
+      <p>Instagram is still the fastest place to catch the newest flyer, time, and location.</p>
+      <a class="button button-primary" href={siteData.business.instagram} target="_blank" rel="noreferrer">Check the latest event post</a>
+    </div>
+    <div class="event-route-panel">
+      <span class="eyebrow">Where the rack has traveled</span>
+      <h2>Albany · Troy · Saratoga · Burlington</h2>
+      <p>Past posts have included vintage markets, neighborhood pop-ups, themed collections, and community events around New York and nearby.</p>
+      <div class="event-type-strip">
+        <span>vintage markets</span>
+        <span>community pop-ups</span>
+        <span>themed events</span>
       </div>
-    </article>
+    </div>
+  </section>
+
+  <section class="page-section market-reasons-section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Why shop in person</span>
+        <h2>Some clothes need to be seen on a rack.</h2>
+      </div>
+    </div>
+    <div class="market-reasons">
+      <article><span>01</span><h3>See the real color and texture</h3><p>Secondhand pieces can look completely different once you can touch the fabric and see the details up close.</p></article>
+      <article><span>02</span><h3>Ask Sage about the fit</h3><p>Talk through sizing, styling ideas, and what else could work with the piece before you take it home.</p></article>
+      <article><span>03</span><h3>Catch pieces before they go online</h3><p>Events often include fresh finds and one-of-one items that may never make it to a website listing.</p></article>
+    </div>
   </section>
 </BaseLayout>
