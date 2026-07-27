@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Checkout cancelled" description="Return to the Good Intentions shop after cancelling checkout." noindex={true}>
+  <section class="page-hero page-hero-narrow checkout-result-page">
+    <span class="eyebrow">No payment was completed</span>
+    <h1>Checkout cancelled</h1>
+    <p>You left Stripe before finishing the payment. The item has not been confirmed as purchased.</p>
+    <div class="button-row">
+      <a class="button button-primary" href="/shop">Return to the shop</a>
+      <a class="button button-secondary" href="https://www.instagram.com/good.intentions.collections/" target="_blank" rel="noreferrer">Ask Sage a question</a>
+    </div>
+  </section>
+</BaseLayout>
