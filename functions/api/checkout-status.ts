@@ -76,10 +76,3 @@ export async function onRequestGet({ request, env }: PagesContext<CheckoutEnv>):
     productSlug: session.metadata?.product_slug ?? null,
   });
 }
-
-export function onRequest(): Response {
-  return new Response("Method not allowed", {
-    status: 405,
-    headers: { Allow: "GET" },
-  });
-}
