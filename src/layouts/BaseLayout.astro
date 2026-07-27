@@ -44,19 +44,15 @@ const nav = [
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="development-banner">Foundation preview — checkout and final inventory are not live.</div>
+    <div class="development-banner">Website preview — the online shop is not open yet.</div>
     <header class="site-header">
-      <div class="announcement">
-        <span>{siteData.business.tagline}</span>
-        <span>{siteData.commerce.shipping}</span>
-      </div>
       <div class="nav-shell">
         <a class="brand" href="/" aria-label="Good Intentions home">
           <span class="brand-orb" aria-hidden="true"></span>
           <span>good<br />Intentions</span>
         </a>
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
-          <span></span><span></span><span></span><b class="sr-only">Open menu</b>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+          <span></span><span></span><span></span>
         </button>
         <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
           {nav.map(([label, href]) => (
@@ -71,12 +67,13 @@ const nav = [
         <div>
           <a class="brand brand-small" href="/"><span class="brand-orb" aria-hidden="true"></span><span>good<br />Intentions</span></a>
           <p>{siteData.business.description}</p>
+          <p class="footer-shipping">{siteData.commerce.shipping}</p>
         </div>
         <div><h2>Explore</h2><a href="/shop">Shop</a><a href="/events">Events</a><a href="/about">About</a></div>
         <div><h2>Services</h2><a href="/style-bundles">Style bundles</a><a href="/personal-styling">Personal styling</a><a href="/donate">Donate</a></div>
         <div><h2>Follow</h2><a href={siteData.business.instagram} target="_blank" rel="noreferrer">Instagram</a><a href={siteData.business.depop} target="_blank" rel="noreferrer">Depop archive</a><a href="/policies">Policies</a></div>
       </div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} Good Intentions</span><span>Curated by Sage</span></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} Good Intentions</span><span>Picked and styled by Sage</span></div>
     </footer>
     <script is:inline>
       const button = document.querySelector('.menu-button');
@@ -84,6 +81,7 @@ const nav = [
       button?.addEventListener('click', () => {
         const open = button.getAttribute('aria-expanded') === 'true';
         button.setAttribute('aria-expanded', String(!open));
+        button.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
         nav?.classList.toggle('is-open', !open);
       });
     </script>
