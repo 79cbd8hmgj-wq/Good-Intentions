@@ -12,15 +12,16 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 const canCheckout = siteData.commerce.checkoutEnabled && product.status === "available" && Boolean(product.checkoutUrl);
 const checkoutHref = product.checkoutUrl ?? "#";
+const isDraft = product.status === "draft";
 ---
 <BaseLayout title={product.name} description={`${product.name} from Good Intentions. ${product.condition}`}>
   <section class="page-section detail-shell">
-    <div class="detail-art"><span>{product.name}</span></div>
+    <div class="detail-art"><span>{isDraft ? "Photo coming soon" : product.name}</span></div>
     <div class="detail-copy">
       <a class="text-link" href="/shop">← Back to shop</a>
       <span class="eyebrow">{product.category}</span>
       <h1>{product.name}</h1>
-      <p><strong>${product.price}</strong></p>
+      {isDraft ? <p><strong>Preview listing</strong></p> : <p><strong>${product.price}</strong></p>}
       <dl class="spec-list">
         <div><dt>Size</dt><dd>{product.size}</dd></div>
         <div><dt>Measurements</dt><dd>{product.measurements}</dd></div>
@@ -33,9 +34,9 @@ const checkoutHref = product.checkoutUrl ?? "#";
       {canCheckout ? (
         <a class="button button-primary" href={checkoutHref}>Buy securely</a>
       ) : (
-        <button class="button button-disabled" type="button" disabled>Checkout coming soon</button>
+        <button class="button button-disabled" type="button" disabled>Not available to buy yet</button>
       )}
-      <p class="checkout-note">Foundation listing only. Real photos, measurements, condition notes, shipping weight, availability, and a secure payment link must be confirmed before sale.</p>
+      <p class="checkout-note">This page is holding the place for the real listing. Sage still needs to add the original photos, exact measurements, condition notes, shipping weight, final price, and purchase link.</p>
     </div>
   </section>
 </BaseLayout>
